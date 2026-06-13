@@ -1,3 +1,5 @@
+let currentPage = 1;
+
 function nextPage(pageNumber){
 
 document.querySelectorAll(".page")
@@ -7,6 +9,30 @@ page.classList.remove("active");
 
 document
 .getElementById("page"+pageNumber)
+.classList.add("active");
+
+currentPage = pageNumber;
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+function prevPage(){
+
+if(currentPage <= 1) return;
+
+document.querySelectorAll(".page")
+.forEach(page=>{
+page.classList.remove("active");
+});
+
+currentPage--;
+
+document
+.getElementById("page"+currentPage)
 .classList.add("active");
 
 window.scrollTo({
