@@ -1,5 +1,3 @@
-let currentPage = 1;
-
 function nextPage(pageNumber){
 
 document.querySelectorAll(".page")
@@ -11,8 +9,6 @@ document
 .getElementById("page"+pageNumber)
 .classList.add("active");
 
-currentPage = pageNumber;
-
 window.scrollTo({
 top:0,
 behavior:"smooth"
@@ -22,17 +18,23 @@ behavior:"smooth"
 
 function prevPage(){
 
-if(currentPage <= 1) return;
+const activePage =
+document.querySelector(".page.active");
+
+const currentNumber =
+parseInt(
+activePage.id.replace("page","")
+);
+
+if(currentNumber <= 1) return;
 
 document.querySelectorAll(".page")
 .forEach(page=>{
 page.classList.remove("active");
 });
 
-currentPage--;
-
 document
-.getElementById("page"+currentPage)
+.getElementById("page"+(currentNumber-1))
 .classList.add("active");
 
 window.scrollTo({
