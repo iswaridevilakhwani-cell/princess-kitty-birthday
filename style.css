@@ -52,7 +52,8 @@ border-radius:50%;
 background:#ffd9ec;
 box-shadow:
 0 0 25px #ffd9ec,
-0 0 60px rgba(255,217,236,.7);
+0 0 60px rgba(255,217,236,.7),
+0 0 120px rgba(210,180,255,.25);
 cursor:pointer;
 z-index:100;
 }
@@ -138,12 +139,19 @@ margin-bottom:30px;
 /* BUTTONS */
 
 button{
+    box-shadow:
+0 4px 15px rgba(255,183,220,.25);
 padding:14px 30px;
 
 border:none;
 border-radius:999px;
 
-background:#ffd6ea;
+background:linear-gradient(
+135deg,
+#ffd6ea,
+#ffc4df,
+#e2cbff
+);
 
 color:#5b2d50;
 
@@ -163,12 +171,15 @@ background:#ffc4df;
 /* CARDS */
 
 .content-card{
+    box-shadow:
+0 10px 30px rgba(255,183,220,.08),
+0 0 20px rgba(201,175,255,.08);
 max-width:900px;
 width:100%;
 
 padding:40px;
 
-background:rgba(255,255,255,.07);
+background:rgba(255,255,255,.09);
 
 backdrop-filter:blur(14px);
 
@@ -229,6 +240,7 @@ margin-top:25px;
 }
 
 .reason{
+    border:1px solid rgba(255,183,220,.08);
 padding:18px;
 
 background:
@@ -241,8 +253,12 @@ transition:.3s;
 
 .reason:hover{
 transform:translateY(-4px);
+
 background:
 rgba(255,183,220,.18);
+
+box-shadow:
+0 8px 20px rgba(255,183,220,.12);
 }
 
 /* SCROLLBAR */
@@ -287,4 +303,26 @@ h2{
 font-size:1.7rem;
 }
 
+}
+/* PREVIOUS / NEXT BUTTONS */
+
+.nav-buttons{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+margin-top:25px;
+}
+
+.nav-buttons button{
+flex:1;
+max-width:220px;
+}
+
+.nav-buttons button:first-child{
+margin-right:auto;
+}
+
+.nav-buttons button:last-child{
+margin-left:auto;
 }
